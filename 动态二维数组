@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+int **defarr(int i, int j);
+int sum(int **pa, int i, int j);
+
+int main() {
+	int i, j;
+	cout << "row and col";
+	cin >> i >> j;
+	int **arr = defarr(i, j);
+	int sum1 = sum(arr, i, j);
+	cout << "总和" <<sum1<< endl;
+	return 0;
+}
+
+int **defarr(int i, int j)
+{
+	int ** pa = new int *[i]; //指针的指针有i个
+	for (int a = 0; a < i; a++)
+	{
+		pa[a] = new int[j];//指向数组的指针,每个数组有j个元素
+	}
+	for (int r = 0; r < i; r++)
+	{
+		for (int c = 0; c < j; c++)
+		{
+			cout << "enter 第" << r+1 << "行" << c+1 << "列";
+			cin >> pa[r][c];
+		}
+	}
+	return  pa;
+	//释放二维数组
+	for (int b = 0; b < i; b++)
+	{
+		delete[]  pa[b];
+	}
+	delete[]pa;
+	
+}
+
+int sum(int **pa, int i,int j)
+{
+	int total = 0;
+	for (int r = 0; r < i; r++)
+	{
+		for (int c = 0; c < j; c++)
+		{
+			total += pa[r][c];
+		}
+	}
+	return total;
+}
