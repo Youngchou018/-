@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+const int maxsize = 10;
+
+int get(int a[], int size);
+void view(const int a[],int size);
+double value(const int a[],int size);
+
+int main() {
+	int a[maxsize];
+	int pb = get(a,maxsize);
+	view(a,pb);
+	double va = value(a,pb);
+	cout << "平均" << va;
+	return 0;
+}
+
+int get(int a[], int size) {
+	cout << "输入成绩";
+	int i=0;
+	while ((i < maxsize) && (cin>>a[i]))
+	{
+		i++;
+	}
+	cout << i << "个成绩";
+	return i;
+}
+
+void view(const int a[],int size){
+	int i = 0;
+	while (i<size)
+	{
+		cout << a[i] << " ";
+		i++;
+	}
+}
+
+double value(const int a[],int size) {
+	int i = 0;
+	double sum = 0.0;
+	while (i<size)
+	{
+		sum += a[i];
+		i++;
+	}
+	return sum/i;
+}
