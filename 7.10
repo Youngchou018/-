@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+void calculate(double a, double b, double (*p)(double, double));
+double add(double a, double b);
+int main() {
+	double a, b;
+	cin >> a >> b;
+	calculate(a, b, add);
+
+
+	return 0;
+}
+
+void calculate(double a, double b, double (*p)(double,double))
+{
+	cout << (*p)(a, b);
+}
+
+double add(double a, double b)
+{
+	return a + b;
+}
