@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+const int season = 4;
+const char * a[][20]= {
+	"spring",
+	"summer",
+	"fall",
+	"winter" };
+
+void fill(double b[]);
+void show(double b[]);
+int main() {
+	double expense[season];
+	fill(expense);
+	show(expense);
+	return 0;
+}
+
+void fill(double b[])
+{
+	for (int i = 0; i < season; i++)
+	{
+		cout << "enter" << *a[i] << "expense";
+		cin >> b[i];
+	}
+}
+
+void show(double b[])
+{
+	double total = 0.0;
+	for (int i = 0; i < season; i++)
+	{
+		total += b[i];
+	}
+	cout << total;
+}
